@@ -10,6 +10,15 @@ namespace BlackJack
     {
         static void Main(string[] args)
         {
+
+            //TEST SECTION
+            int score = 0;
+            Card TestCard = new Card(Rank.Ace);
+            score = TestCard.Value();
+            Console.WriteLine(score);
+
+            //END TEST SECTION
+
             //create deck
             Player Human = new Player();
             Player Dealer = new Player();

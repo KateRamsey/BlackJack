@@ -43,9 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\PlayerClass.cs">
-      <Link>PlayerClass.cs</Link>
-    </Compile>
+    <Compile Include="CardClass.cs" />
+    <Compile Include="PlayerClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

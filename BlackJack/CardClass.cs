@@ -33,6 +33,14 @@ namespace BlackJack
         {
         }
 
+        //test code
+        public Card(Rank cardRank)
+        {
+            Rank = cardRank;
+        }
+        //end test code
+
+
         public Rank Rank {get; set;}
         public Suit Suit {get; set;}
 
