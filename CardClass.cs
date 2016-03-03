@@ -38,11 +38,11 @@ namespace BlackJack
 
         public int Value()
         {
-            switch (this.rank)
+            switch (this.Rank)
             {
-                // case Ace return 11
+                case Rank.Ace: return 11;
                 //case king return 10
-                //etc
+                default: return 0;
             }
         }
     }
