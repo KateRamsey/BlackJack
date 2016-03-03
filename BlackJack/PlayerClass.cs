@@ -2,8 +2,9 @@
 
 public class Player
 {
-	public Player()
+	public Player(bool Dealer)
 	{
+        isDealer = Dealer;
         score = 0;
 	}
 

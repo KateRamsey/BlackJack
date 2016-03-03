@@ -16,15 +16,11 @@ namespace BlackJack
             Card TestCard = new Card(Rank.Eight);
             score = TestCard.Value();
             Console.WriteLine(score);
-
             //END TEST SECTION
 
             //create deck
-            Player Human = new Player();
-            Player Dealer = new Player();
-            Human.isDealer = false;
-            Dealer.isDealer = true;
-
+            Player Human = new Player(false);
+            Player Dealer = new Player(true);
 
             //Game Loop
 
