@@ -13,7 +13,7 @@ namespace BlackJack
 
             //TEST SECTION
             int score = 0;
-            Card TestCard = new Card(Rank.Ace);
+            Card TestCard = new Card(Rank.Eight);
             score = TestCard.Value();
             Console.WriteLine(score);
 
