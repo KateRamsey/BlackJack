@@ -1,21 +1,49 @@
 ﻿using System;
 
-public class Card
+namespace BlackJack
 {
-	public Card()
-	{
-	}
-
-    //suit (enum?)
-    //rank (enum?)
-
-    public int Value()
+    public enum Suit
     {
-        switch (this.rank)
+        Hearts,
+        Diamonds,
+        Clubs,
+        Clovers
+    }
+
+    public enum Rank
+    {
+        Ace,
+        Deuce,
+        Three,
+        Four,
+        Five,
+        Six,
+        Seven,
+        Eight,
+        Nine,
+        Ten,
+        Jack,
+        Queen,
+        King
+    }
+
+    public class Card
+    {
+        public Card()
         {
-            // case Ace return 11
-            //case king return 10
-            //etc
+        }
+
+        public Rank Rank {get; set;}
+        public Suit Suit {get; set;}
+
+        public int Value()
+        {
+            switch (this.rank)
+            {
+                // case Ace return 11
+                //case king return 10
+                //etc
+            }
         }
     }
 }
