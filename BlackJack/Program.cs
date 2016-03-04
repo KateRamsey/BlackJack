@@ -11,12 +11,6 @@ namespace BlackJack
         static void Main(string[] args)
         {
 
-            //TEST SECTION
-           /* int score = 0;
-            Card TestCard = new Card(Rank.Eight);
-            score = TestCard.Value();
-            Console.WriteLine(score); */
-            //END TEST SECTION
 
             List<Card> Deck = new List<Card>();
             foreach (Rank r in Enum.GetValues(typeof(Rank)))
