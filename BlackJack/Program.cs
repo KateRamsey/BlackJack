@@ -69,7 +69,7 @@ namespace BlackJack
 
 
                     //Dealer's turn//////////////
- 
+
                     Console.WriteLine("Dealer's Second Card Is:");
                     Dealer.Hand[1].Show();
                     Dealer.Score = Dealer.Hand[0].Value() + Dealer.Hand[1].Value();
@@ -86,7 +86,8 @@ namespace BlackJack
 
                     }
 
-                        //Calculate and display winner
+                    //Calculate and display winner
+                }
                     
                 Console.WriteLine("Would you like to play again? Please press 'Y' or 'N'");
                 PlayAgain = char.Parse(Console.ReadLine());
