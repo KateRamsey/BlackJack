@@ -12,13 +12,22 @@ namespace BlackJack
         {
 
             //TEST SECTION
-            int score = 0;
+           /* int score = 0;
             Card TestCard = new Card(Rank.Eight);
             score = TestCard.Value();
-            Console.WriteLine(score);
+            Console.WriteLine(score); */
             //END TEST SECTION
 
-            //create deck
+            List<Card> Deck = new List<Card>();
+            foreach (Rank r in Enum.GetValues(typeof(Rank)))
+            {
+                foreach (Suit s in Enum.GetValues(typeof(Suit)))
+                {
+                    Deck.Add(new Card(s, r));
+                }
+            }
+
+
             Player Human = new Player(false);
             Player Dealer = new Player(true);
 

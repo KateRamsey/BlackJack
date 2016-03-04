@@ -29,16 +29,11 @@ namespace BlackJack
 
     public class Card
     {
-        public Card()
+        public Card(Suit s, Rank r)
         {
+            this.Rank = r;
+            this.Suit = s;
         }
-
-        //test code
-        public Card(Rank cardRank)
-        {
-            Rank = cardRank;
-        }
-        //end test code
 
 
         public Rank Rank {get; set;}
