@@ -45,16 +45,18 @@ namespace BlackJack
                 Console.WriteLine("Your Cards Are:");
                 Human.Hand[0].Show();
                 Human.Hand[1].Show();
+                Console.WriteLine();
 
                 Console.WriteLine("Dealer's First Card Is:");
                 Dealer.Hand[0].Show();
+                Console.WriteLine();
 
                 Human.Score = Human.Hand[0].Value() + Human.Hand[1].Value();
                 Console.WriteLine($"You're score is {Human.Score}");
-                //if player score == 21, player wins, skip to end
                 if (Human.Score == 21)
                 {
                     Console.WriteLine("BlackJack, you win!!");
+                    Console.WriteLine();
                     BlackJack = true;
                 }
 
@@ -68,6 +70,8 @@ namespace BlackJack
 
                     //Dealer's turn
                     //show hidden card
+                    Console.WriteLine("Dealer's Second Card Is:");
+                    Dealer.Hand[1].Show();
                     //calculate and display score
                     //check win
                     //check lose
