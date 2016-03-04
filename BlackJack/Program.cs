@@ -25,6 +25,7 @@ namespace BlackJack
 
             bool StillPlaying = true;
             char PlayAgain;
+            bool BlackJack = false;
 
             //Game Loop
             while (StillPlaying)
@@ -51,30 +52,37 @@ namespace BlackJack
                 Human.Score = Human.Hand[0].Value() + Human.Hand[1].Value();
                 Console.WriteLine($"You're score is {Human.Score}");
                 //if player score == 21, player wins, skip to end
+                if (Human.Score == 21)
+                {
+                    Console.WriteLine("BlackJack, you win!!");
+                    BlackJack = true;
+                }
 
-                //while player's turn
-                //if player score > 21 they lose, skip to end
-                //else ask to hit or stay, if stay dealers turn, else deal
-                //calculate and display player score
-
-
-                //Dealer's turn
-                //show hidden card
-                //calculate and display score
-                //check win
-                //check lose
-                //while dealer's score < 16
-                //hit
-                //calculate and display score
-                //check win
-                //check lose
+                if (!BlackJack)
+                {
+                    //while player's turn
+                    //if player score > 21 they lose, skip to end
+                    //else ask to hit or stay, if stay dealers turn, else deal
+                    //calculate and display player score
 
 
-                //Calculate and display winner
+                    //Dealer's turn
+                    //show hidden card
+                    //calculate and display score
+                    //check win
+                    //check lose
+                    //while dealer's score < 16
+                    //hit
+                    //calculate and display score
+                    //check win
+                    //check lose
 
+
+                    //Calculate and display winner
+                }
                 Console.WriteLine("Would you like to play again? Please press 'Y' or 'N'");
                 PlayAgain = char.Parse(Console.ReadLine());
-                while(PlayAgain != 'Y' && PlayAgain != 'y' && PlayAgain != 'n' && PlayAgain != 'N')
+                while (PlayAgain != 'Y' && PlayAgain != 'y' && PlayAgain != 'n' && PlayAgain != 'N')
                 {
                     Console.WriteLine("Please press 'Y' or 'N'");
                     PlayAgain = char.Parse(Console.ReadLine());
@@ -92,6 +100,7 @@ namespace BlackJack
                     Dealer.Hand.Clear();
                     Console.Clear();
                 }
+                
             }
 
             Console.ReadLine();
