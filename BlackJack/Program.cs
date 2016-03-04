@@ -31,12 +31,11 @@ namespace BlackJack
             {
                 Console.WriteLine("Let's Play!!");
 
-                //deal 2 cards to player
                 Human.Hand.Add(randomDeck[0]);
                 randomDeck.Remove(randomDeck[0]);
                 Human.Hand.Add(randomDeck[0]);
                 randomDeck.Remove(randomDeck[0]);
-                //deal 2 cards to dealer
+
                 Dealer.Hand.Add(randomDeck[0]);
                 randomDeck.Remove(randomDeck[0]);
                 Dealer.Hand.Add(randomDeck[0]);

@@ -59,5 +59,51 @@ namespace BlackJack
                 default: return 0;
             }
         }
+
+        public void Show()
+        {
+            switch (Rank)
+            {
+                case Rank.Ace:
+                    Console.Write("Ace of "); break;
+                case Rank.King:
+                    Console.Write("King of "); break;
+                case Rank.Queen:
+                    Console.Write("Queen of "); break;
+                case Rank.Jack:
+                    Console.Write("Jack of "); break;
+                case Rank.Ten:
+                    Console.Write("Ten of "); break;
+                case Rank.Nine:
+                    Console.Write("Nine of "); break;
+                case Rank.Eight:
+                    Console.Write("Eight of "); break;
+                case Rank.Seven:
+                    Console.Write("Seven of "); break;
+                case Rank.Six:
+                    Console.Write("Six of "); break;
+                case Rank.Five:
+                    Console.Write("Five of "); break;
+                case Rank.Four:
+                    Console.Write("Four of "); break;
+                case Rank.Three:
+                    Console.Write("Three of "); break;
+                case Rank.Deuce:
+                    Console.Write("Deuce of "); break;
+            }
+
+            switch (Suit)
+            {
+                case Suit.Clubs:
+                    Console.Write("Clubs"); break;
+                case Suit.Diamonds:
+                    Console.Write("Diamonds"); break;
+                case Suit.Hearts:
+                    Console.Write("Hearts"); break;
+                case Suit.Spades:
+                    Console.Write("Spades"); break;
+            }
+            return;
+        }
     }
 }
