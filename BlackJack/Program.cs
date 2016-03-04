@@ -26,14 +26,14 @@ namespace BlackJack
                     Deck.Add(new Card(s, r));
                 }
             }
-
+            var randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
 
             Player Human = new Player(false);
             Player Dealer = new Player(true);
 
             //Game Loop
 
-            //shuffle deck
+
 
             //deal 2 cards to player
             //deal 2 cards to dealer
@@ -56,16 +56,18 @@ namespace BlackJack
             //check win
             //check lose
             //while dealer's score < 16
-                //hit
-                //calculate and display score
-                //check win
-                //check lose
+            //hit
+            //calculate and display score
+            //check win
+            //check lose
 
 
             //Calculate and display winner
 
             //ask "Play again?"
 
+            //shuffle deck if play again
+            randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
 
             Console.ReadLine();
         }
