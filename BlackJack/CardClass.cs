@@ -95,13 +95,13 @@ namespace BlackJack
             switch (Suit)
             {
                 case Suit.Clubs:
-                    Console.Write("Clubs"); break;
+                    Console.WriteLine("Clubs"); break;
                 case Suit.Diamonds:
-                    Console.Write("Diamonds"); break;
+                    Console.WriteLine("Diamonds"); break;
                 case Suit.Hearts:
-                    Console.Write("Hearts"); break;
+                    Console.WriteLine("Hearts"); break;
                 case Suit.Spades:
-                    Console.Write("Spades"); break;
+                    Console.WriteLine("Spades"); break;
             }
             return;
         }

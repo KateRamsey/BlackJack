@@ -41,8 +41,12 @@ namespace BlackJack
                 Dealer.Hand.Add(randomDeck[0]);
                 randomDeck.Remove(randomDeck[0]);
 
-                //show player cards
+                Console.WriteLine("Your Cards Are:");
+                Human.Hand[0].Show();
+                Human.Hand[1].Show();
                 //show dealer card #1
+                Console.WriteLine("Dealer's First Card Is:");
+                Dealer.Hand[0].Show();
 
                 //calculate and display player score
                 //if player score == 21, player wins, skip to end
@@ -74,6 +78,7 @@ namespace BlackJack
                     Console.WriteLine("Please press 'Y' or 'N'");
                     PlayAgain = char.Parse(Console.ReadLine());
                 }
+
                 if (PlayAgain == 'N' || PlayAgain == 'n')
                 {
                     StillPlaying = false;
@@ -82,6 +87,9 @@ namespace BlackJack
                 else
                 {
                     randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
+                    Human.Hand.Clear();
+                    Dealer.Hand.Clear();
+                    Console.Clear();
                 }
             }
 
