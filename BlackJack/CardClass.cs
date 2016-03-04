@@ -7,7 +7,7 @@ namespace BlackJack
         Hearts,
         Diamonds,
         Clubs,
-        Clovers
+        Spades
     }
 
     public enum Rank
