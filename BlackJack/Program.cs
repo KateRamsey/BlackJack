@@ -51,7 +51,7 @@ namespace BlackJack
                 Dealer.Hand[0].Show();
                 Console.WriteLine();
 
-                Human.Score = Human.Hand[0].Value() + Human.Hand[1].Value();
+                Human.Score += Human.Hand[0].Value() + Human.Hand[1].Value();
                 Console.WriteLine($"You're score is {Human.Score}");
                 if (Human.Score == 21)
                 {
@@ -68,11 +68,13 @@ namespace BlackJack
                     //calculate and display player score
 
 
-                    //Dealer's turn
-                    //show hidden card
+                    //Dealer's turn//////////////
+ 
                     Console.WriteLine("Dealer's Second Card Is:");
                     Dealer.Hand[1].Show();
                     //calculate and display score
+                    Dealer.Score = Dealer.Hand[0].Value() + Dealer.Hand[1].Value();
+                    Console.WriteLine($"Dealer score is {Dealer.Score}");
                     //check win
                     //check lose
                     //while dealer's score < 16
@@ -102,6 +104,8 @@ namespace BlackJack
                     randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
                     Human.Hand.Clear();
                     Dealer.Hand.Clear();
+                    Human.Score = 0;
+                    Dealer.Score = 0;
                     Console.Clear();
                 }
                 
