@@ -1,14 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 
-public class Player
+namespace BlackJack
 {
-	public Player(bool Dealer)
-	{
-        isDealer = Dealer;
-        score = 0;
-	}
+    public class Player
+    {
+        public Player(bool Dealer)
+        {
+            isDealer = Dealer;
+            score = 0;
+        }
 
-    public bool isDealer { get; set; }
-    public int score { get; set; }
+        public bool isDealer { get; set; }
+        public int score { get; set; }
 
+        public List<Card> Hand = new List<Card>();
+
+    }
 }

@@ -29,7 +29,6 @@ namespace BlackJack
             //Game Loop
             while (StillPlaying)
             {
-
                 Console.WriteLine("Let's Play!!");
                 //deal 2 cards to player
                 //deal 2 cards to dealer
