@@ -8,11 +8,11 @@ namespace BlackJack
         public Player(bool Dealer)
         {
             isDealer = Dealer;
-            score = 0;
+            Score = 0;
         }
 
         public bool isDealer { get; set; }
-        public int score { get; set; }
+        public int Score { get; set; }
 
         public List<Card> Hand = new List<Card>();
 

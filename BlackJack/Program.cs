@@ -44,11 +44,12 @@ namespace BlackJack
                 Console.WriteLine("Your Cards Are:");
                 Human.Hand[0].Show();
                 Human.Hand[1].Show();
-                //show dealer card #1
+
                 Console.WriteLine("Dealer's First Card Is:");
                 Dealer.Hand[0].Show();
 
-                //calculate and display player score
+                Human.Score = Human.Hand[0].Value() + Human.Hand[1].Value();
+                Console.WriteLine($"You're score is {Human.Score}");
                 //if player score == 21, player wins, skip to end
 
                 //while player's turn
