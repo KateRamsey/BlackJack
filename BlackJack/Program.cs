@@ -72,20 +72,22 @@ namespace BlackJack
  
                     Console.WriteLine("Dealer's Second Card Is:");
                     Dealer.Hand[1].Show();
-                    //calculate and display score
                     Dealer.Score = Dealer.Hand[0].Value() + Dealer.Hand[1].Value();
                     Console.WriteLine($"Dealer score is {Dealer.Score}");
-                    //check win
-                    //check lose
-                    //while dealer's score < 16
-                    //hit
-                    //calculate and display score
-                    //check win
-                    //check lose
 
+                    while (Dealer.Score < 16)
+                    {
+                        Dealer.Hand.Add(randomDeck[0]);
+                        randomDeck.Remove(randomDeck[0]);
+                        //Show hand <---- Make method??
+                        // Dealer.Score = //step through Dealer.Hand;
 
-                    //Calculate and display winner
-                }
+                        Dealer.Score = 21; //This is here to prevent infinate loop in testing, delete this line!!
+
+                    }
+
+                        //Calculate and display winner
+                    
                 Console.WriteLine("Would you like to play again? Please press 'Y' or 'N'");
                 PlayAgain = char.Parse(Console.ReadLine());
                 while (PlayAgain != 'Y' && PlayAgain != 'y' && PlayAgain != 'n' && PlayAgain != 'N')
