@@ -51,7 +51,7 @@ namespace BlackJack
                 Dealer.Hand[0].Show();
                 Console.WriteLine();
 
-                Human.Score += Human.Hand[0].Value() + Human.Hand[1].Value();
+                Human.Score = Human.Hand[0].Value() + Human.Hand[1].Value();
                 Console.WriteLine($"You're score is {Human.Score}");
                 if (Human.Score == 21)
                 {
