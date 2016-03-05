@@ -64,6 +64,10 @@ namespace BlackJack
                 {
                     //while player's turn
                     //if player score > 21 they lose, skip to end
+                    if(Human.Score > 21)
+                    {
+                        Console.WriteLine($"Bummer, you bust with a score of {Human.Score}!");
+                    }
                     //else ask to hit or stay, if stay dealers turn, else deal
                     //calculate and display player score
 
