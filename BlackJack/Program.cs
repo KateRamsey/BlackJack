@@ -69,6 +69,7 @@ namespace BlackJack
                         {
                             Console.WriteLine($"Bummer, you bust with a score of {Human.Score}!");
                             Human.TurnEnd = true;
+                            Human.Busted = true;
                         }
                         else
                         {
@@ -94,28 +95,40 @@ namespace BlackJack
                         }
                     }
 
-
-                    //Dealer's turn//////////////
-
-                    Console.WriteLine("Dealer's Second Card Is:");
-                    Dealer.Hand[1].Show();
-                    Dealer.Score = Dealer.Hand[0].Value() + Dealer.Hand[1].Value();
-                    Console.WriteLine($"Dealer score is {Dealer.Score}");
-
-                    while (Dealer.Score < 16)
+                    if (!Human.Busted)
                     {
-                        Dealer.Hand.Add(randomDeck[0]);
-                        randomDeck.Remove(randomDeck[0]);
-                        //Show hand <---- Make method??
-                        // Dealer.Score = //step through Dealer.Hand;
+                        //Dealer's turn//////////////
 
-                        Dealer.Score = 21; //This is here to prevent infinate loop in testing, delete this line!!
+                        Console.WriteLine("Dealer's Second Card Is:");
+                        Dealer.Hand[1].Show();
+                        Dealer.SetScore();
+                        Console.WriteLine($"Dealer score is {Dealer.Score}");
 
+                        while (Dealer.Score < 16)
+                        {
+                            Dealer.Hand.Add(randomDeck[0]);
+                            randomDeck.Remove(randomDeck[0]);
+                            //Show hand <---- Make method??
+                            Dealer.SetScore();
+                        }
+
+                        //Calculate and display winner
+                        Console.WriteLine($"Your score is {Human.Score}, Dealer's score is {Dealer.Score}");
+                        if (Human.Score > Dealer.Score)
+                        {
+                            Console.WriteLine("You Win!");
+                        }
+                        else if (Human.Score== Dealer.Score)
+                        {
+                            Console.WriteLine("Ties go to the dealer, you lose");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You lose, dealer's score beats yours");
+                        }
                     }
-
-                    //Calculate and display winner
                 }
-                    
+
                 Console.WriteLine("Would you like to play again? Please press 'Y' or 'N'");
                 PlayAgain = char.Parse(Console.ReadLine());
                 while (PlayAgain != 'Y' && PlayAgain != 'y' && PlayAgain != 'n' && PlayAgain != 'N')
@@ -131,20 +144,27 @@ namespace BlackJack
                 }
                 else
                 {
-                    randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
-                    Human.Hand.Clear();
-                    Dealer.Hand.Clear();
-                    Human.Score = 0;
-                    Dealer.Score = 0;
-                    BlackJack = false;
-                    Human.TurnEnd = false;
-                    Dealer.TurnEnd = false;
-                    Console.Clear();
+                    ResetGame(randomDeck, Human, Dealer, BlackJack);
                 }
-                
+
             }
 
             Console.ReadLine();
+        }
+
+        static void ResetGame(List<Card> randomDeck, Player Human, Player Dealer, bool BlackJack)
+        {
+            randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
+            Human.Hand.Clear();
+            Dealer.Hand.Clear();
+            Human.Score = 0;
+            Dealer.Score = 0;
+            BlackJack = false;
+            Human.TurnEnd = false;
+            Dealer.TurnEnd = false;
+            Human.Busted = false;
+            Dealer.Busted = false;
+            Console.Clear();
         }
     }
 }
