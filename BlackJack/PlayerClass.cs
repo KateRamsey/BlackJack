@@ -14,13 +14,12 @@ namespace BlackJack
         public bool isDealer { get; set; }
         public int Score { get; set; }
 
-        public int CalculateScore()
+        public void SetScore()
         {
             foreach(Card c in Hand)
             {
                 Score += c.Value();
             }
-            return Score;
         }
 
 
