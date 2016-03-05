@@ -9,10 +9,12 @@ namespace BlackJack
         {
             isDealer = Dealer;
             Score = 0;
+            TurnEnd = false;
         }
 
         public bool isDealer { get; set; }
         public int Score { get; set; }
+        public bool TurnEnd { get; set; }
 
         public void SetScore()
         {

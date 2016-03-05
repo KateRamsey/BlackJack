@@ -62,14 +62,23 @@ namespace BlackJack
 
                 if (!BlackJack)
                 {
-                    //while player's turn
-                    //if player score > 21 they lose, skip to end
-                    if(Human.Score > 21)
+                    while (!Human.TurnEnd)
                     {
-                        Console.WriteLine($"Bummer, you bust with a score of {Human.Score}!");
+                        if (Human.Score > 21)
+                        {
+                            Console.WriteLine($"Bummer, you bust with a score of {Human.Score}!");
+                            Human.TurnEnd = true;
+                        }
+                        else
+                        {
+                            //else ask to hit or stay, if stay dealers turn, else deal
+                            Console.WriteLine("Would you like another card?");
+
+                            Human.TurnEnd = true; //////for testing, to break infinate loop, take out!!!
+
+                            //calculate and display player score
+                        }
                     }
-                    //else ask to hit or stay, if stay dealers turn, else deal
-                    //calculate and display player score
 
 
                     //Dealer's turn//////////////
@@ -113,6 +122,9 @@ namespace BlackJack
                     Dealer.Hand.Clear();
                     Human.Score = 0;
                     Dealer.Score = 0;
+                    BlackJack = false;
+                    Human.TurnEnd = false;
+                    Dealer.TurnEnd = false;
                     Console.Clear();
                 }
                 
