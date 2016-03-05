@@ -28,7 +28,6 @@ namespace BlackJack
             char AnotherCard;
             bool BlackJack = false;
 
-            //Game Loop
             while (StillPlaying)
             {
                 Console.WriteLine("Let's Play!!");
@@ -98,19 +97,25 @@ namespace BlackJack
 
                     if (!Human.Busted)
                     {
-                        //Dealer's turn//////////////
-
-                        Console.WriteLine("Dealer's Second Card Is:");
-                        Dealer.Hand[1].Show();
+                        Console.WriteLine();
+                        Console.WriteLine("Dealer's hand is:");
+                        Dealer.ShowHand();
                         Dealer.SetScore();
                         Console.WriteLine($"Dealer score is {Dealer.Score}");
+                        Console.WriteLine();
 
                         while (Dealer.Score < 16)
                         {
+                            Console.WriteLine("The Dealer Hits");
+                            Console.WriteLine();
                             Dealer.Hand.Add(randomDeck[0]);
                             randomDeck.Remove(randomDeck[0]);
-                            //Show hand <---- Make method??
+                            Console.WriteLine("Dealer's Hand is:");
+                            Dealer.ShowHand();
+                            Console.WriteLine();
                             Dealer.SetScore();
+                            Console.WriteLine($"The Dealer's Score is {Dealer.Score}");
+                            Console.WriteLine();
                         }
 
                         Console.WriteLine($"Your score is {Human.Score}, Dealer's score is {Dealer.Score}");
