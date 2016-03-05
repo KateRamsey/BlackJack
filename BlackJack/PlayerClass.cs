@@ -5,16 +5,14 @@ namespace BlackJack
 {
     public class Player
     {
-        public Player(bool Dealer)
+        public Player()
         {
-            isDealer = Dealer;
             Score = 0;
             TurnEnd = false;
             Busted = false;
             SixCardWin = false;
         }
 
-        public bool isDealer { get; set; }
         public int Score { get; set; }
         public bool TurnEnd { get; set; }
         public bool Busted { get; set; }

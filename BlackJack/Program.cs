@@ -20,8 +20,8 @@ namespace BlackJack
             }
             var randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
 
-            Player Human = new Player(false);
-            Player Dealer = new Player(true);
+            Player Human = new Player();
+            Player Dealer = new Player();
 
             bool StillPlaying = true;
             char PlayAgain;
