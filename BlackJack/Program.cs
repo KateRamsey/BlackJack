@@ -44,8 +44,7 @@ namespace BlackJack
                 randomDeck.Remove(randomDeck[0]);
 
                 Console.WriteLine("Your Cards Are:");
-                Human.Hand[0].Show();
-                Human.Hand[1].Show();
+                Human.ShowHand();
                 Console.WriteLine();
 
                 Console.WriteLine("Dealer's First Card Is:");
@@ -84,7 +83,9 @@ namespace BlackJack
                             {
                                 Human.Hand.Add(randomDeck[0]);
                                 randomDeck.Remove(randomDeck[0]);
-                                //display hand
+                                Console.WriteLine("Your hand is now:");
+                                Human.ShowHand();
+                                Console.WriteLine();
                                 Human.SetScore();
                                 Console.WriteLine($"You're score is {Human.Score}");
                             }
@@ -112,7 +113,6 @@ namespace BlackJack
                             Dealer.SetScore();
                         }
 
-                        //Calculate and display winner
                         Console.WriteLine($"Your score is {Human.Score}, Dealer's score is {Dealer.Score}");
                         if (Human.Score > Dealer.Score)
                         {
@@ -144,7 +144,7 @@ namespace BlackJack
                 }
                 else
                 {
-                    ResetGame(randomDeck, Human, Dealer, BlackJack);
+                    ResetGame(randomDeck, Human, Dealer, BlackJack, Deck);
                 }
 
             }
@@ -152,7 +152,7 @@ namespace BlackJack
             Console.ReadLine();
         }
 
-        static void ResetGame(List<Card> randomDeck, Player Human, Player Dealer, bool BlackJack)
+        static void ResetGame(List<Card> randomDeck, Player Human, Player Dealer, bool BlackJack, List<Card> Deck)
         {
             randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
             Human.Hand.Clear();

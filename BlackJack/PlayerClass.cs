@@ -18,6 +18,14 @@ namespace BlackJack
         public bool TurnEnd { get; set; }
         public bool Busted { get; set; }
 
+        public void ShowHand()
+        {
+            foreach(Card c in Hand)
+            {
+                c.Show();
+            }
+        }
+
         public void SetScore()
         {
             Score = 0;
