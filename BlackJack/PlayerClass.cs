@@ -18,6 +18,7 @@ namespace BlackJack
 
         public void SetScore()
         {
+            Score = 0;
             foreach(Card c in Hand)
             {
                 Score += c.Value();

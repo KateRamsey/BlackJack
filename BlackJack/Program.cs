@@ -25,6 +25,7 @@ namespace BlackJack
 
             bool StillPlaying = true;
             char PlayAgain;
+            char AnotherCard;
             bool BlackJack = false;
 
             //Game Loop
@@ -71,12 +72,25 @@ namespace BlackJack
                         }
                         else
                         {
-                            //else ask to hit or stay, if stay dealers turn, else deal
-                            Console.WriteLine("Would you like another card?");
-
-                            Human.TurnEnd = true; //////for testing, to break infinate loop, take out!!!
-
-                            //calculate and display player score
+                            Console.WriteLine("Would you like another card? (H)it or (S)tay");
+                            AnotherCard = char.Parse(Console.ReadLine());
+                            while (AnotherCard != 'H' && AnotherCard != 'h' && AnotherCard != 'S' && AnotherCard != 's')
+                            {
+                                Console.WriteLine("Please press 'H' for hit or 'S' for stay");
+                                AnotherCard = char.Parse(Console.ReadLine());
+                            }
+                            if (AnotherCard == 'H' || AnotherCard == 'h')
+                            {
+                                Human.Hand.Add(randomDeck[0]);
+                                randomDeck.Remove(randomDeck[0]);
+                                //display hand
+                                Human.SetScore();
+                                Console.WriteLine($"You're score is {Human.Score}");
+                            }
+                            else
+                            {
+                                Human.TurnEnd = true;
+                            }
                         }
                     }
 
