@@ -69,6 +69,12 @@ namespace BlackJack
                             Human.TurnEnd = true;
                             Human.Busted = true;
                         }
+                        else if (Human.Hand.Count() == 6)
+                        {
+                            Console.WriteLine("You win by not busting with 6 cards!");
+                            Human.TurnEnd = true;
+                            Human.SixCardWin = true;
+                        }
                         else
                         {
                             Console.WriteLine("Would you like another card? (H)it or (S)tay");
@@ -95,7 +101,7 @@ namespace BlackJack
                         }
                     }
 
-                    if (!Human.Busted)
+                    if (!Human.Busted && !Human.SixCardWin)
                     {
                         Console.WriteLine();
                         Console.WriteLine("Dealer's hand is:");
