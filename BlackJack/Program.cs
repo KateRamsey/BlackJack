@@ -31,6 +31,7 @@ namespace BlackJack
             while (StillPlaying)
             {
                 Console.WriteLine("Let's Play!!");
+                Console.WriteLine();
 
                 Human.Hand.Add(randomDeck[0]);
                 randomDeck.Remove(randomDeck[0]);
@@ -155,27 +156,22 @@ namespace BlackJack
                 }
                 else
                 {
-                    ResetGame(randomDeck, Human, Dealer, BlackJack, Deck);
+                    randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
+                    Human.Hand.Clear();
+                    Dealer.Hand.Clear();
+                    Human.Score = 0;
+                    Dealer.Score = 0;
+                    BlackJack = false;
+                    Human.TurnEnd = false;
+                    Dealer.TurnEnd = false;
+                    Human.Busted = false;
+                    Dealer.Busted = false;
+                    Console.Clear();
                 }
 
             }
 
             Console.ReadLine();
-        }
-
-        static void ResetGame(List<Card> randomDeck, Player Human, Player Dealer, bool BlackJack, List<Card> Deck)
-        {
-            randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
-            Human.Hand.Clear();
-            Dealer.Hand.Clear();
-            Human.Score = 0;
-            Dealer.Score = 0;
-            BlackJack = false;
-            Human.TurnEnd = false;
-            Dealer.TurnEnd = false;
-            Human.Busted = false;
-            Dealer.Busted = false;
-            Console.Clear();
         }
     }
 }
