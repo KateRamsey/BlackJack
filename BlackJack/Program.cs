@@ -10,15 +10,15 @@ namespace BlackJack
     {
         static void Main(string[] args)
         {
-            List<Card> Deck = new List<Card>();
+            List<Card> Shoe = new List<Card>();
             foreach (Rank r in Enum.GetValues(typeof(Rank)))
             {
                 foreach (Suit s in Enum.GetValues(typeof(Suit)))
                 {
-                    Deck.Add(new Card(s, r));
+                    Shoe.Add(new Card(s, r));
                 }
             }
-            var randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
+            var randomShoe = Shoe.OrderBy(x => Guid.NewGuid()).ToList();
 
             Player Human = new Player();
             Player Dealer = new Player();
@@ -33,15 +33,15 @@ namespace BlackJack
                 Console.WriteLine("Let's Play!!");
                 Console.WriteLine();
 
-                Human.Hand.Add(randomDeck[0]);
-                randomDeck.Remove(randomDeck[0]);
-                Human.Hand.Add(randomDeck[0]);
-                randomDeck.Remove(randomDeck[0]);
+                Human.Hand.Add(randomShoe[0]);
+                randomShoe.Remove(randomShoe[0]);
+                Human.Hand.Add(randomShoe[0]);
+                randomShoe.Remove(randomShoe[0]);
 
-                Dealer.Hand.Add(randomDeck[0]);
-                randomDeck.Remove(randomDeck[0]);
-                Dealer.Hand.Add(randomDeck[0]);
-                randomDeck.Remove(randomDeck[0]);
+                Dealer.Hand.Add(randomShoe[0]);
+                randomShoe.Remove(randomShoe[0]);
+                Dealer.Hand.Add(randomShoe[0]);
+                randomShoe.Remove(randomShoe[0]);
 
                 Console.WriteLine("Your Cards Are:");
                 Human.ShowHand();
@@ -87,8 +87,8 @@ namespace BlackJack
                             }
                             if (AnotherCard == 'H' || AnotherCard == 'h')
                             {
-                                Human.Hand.Add(randomDeck[0]);
-                                randomDeck.Remove(randomDeck[0]);
+                                Human.Hand.Add(randomShoe[0]);
+                                randomShoe.Remove(randomShoe[0]);
                                 Console.WriteLine("Your hand is now:");
                                 Human.ShowHand();
                                 Console.WriteLine();
@@ -115,8 +115,8 @@ namespace BlackJack
                         {
                             Console.WriteLine("The Dealer Hits");
                             Console.WriteLine();
-                            Dealer.Hand.Add(randomDeck[0]);
-                            randomDeck.Remove(randomDeck[0]);
+                            Dealer.Hand.Add(randomShoe[0]);
+                            randomShoe.Remove(randomShoe[0]);
                             Console.WriteLine("Dealer's Hand is:");
                             Dealer.ShowHand();
                             Console.WriteLine();
@@ -156,7 +156,7 @@ namespace BlackJack
                 }
                 else
                 {
-                    randomDeck = Deck.OrderBy(x => Guid.NewGuid()).ToList();
+                    randomShoe = Shoe.OrderBy(x => Guid.NewGuid()).ToList();
                     Human.Hand.Clear();
                     Dealer.Hand.Clear();
                     Human.Score = 0;
