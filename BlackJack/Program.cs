@@ -130,9 +130,13 @@ namespace BlackJack
                         {
                             Console.WriteLine("You Win!");
                         }
-                        else if (Human.Score== Dealer.Score)
+                        else if (Human.Score == Dealer.Score)
                         {
                             Console.WriteLine("Ties go to the dealer, you lose");
+                        }
+                        else if (Dealer.Score > 21)
+                        {
+                            Console.WriteLine("Dealer Busts and you Win!!");
                         }
                         else
                         {
@@ -141,6 +145,7 @@ namespace BlackJack
                     }
                 }
 
+                Console.WriteLine();
                 Console.WriteLine("Would you like to play again? Please press 'Y' or 'N'");
                 PlayAgain = char.Parse(Console.ReadLine());
                 while (PlayAgain != 'Y' && PlayAgain != 'y' && PlayAgain != 'n' && PlayAgain != 'N')
