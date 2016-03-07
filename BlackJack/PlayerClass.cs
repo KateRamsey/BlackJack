@@ -14,6 +14,7 @@ namespace BlackJack
         }
 
         public int Score { get; set; }
+        public int AceScore { get; set; }
         public bool TurnEnd { get; set; }
         public bool Busted { get; set; }
         public bool SixCardWin { get; set; }
@@ -32,6 +33,22 @@ namespace BlackJack
             foreach(Card c in Hand)
             {
                 Score += c.Value();
+            }
+        }
+
+        public void SetAceScore()
+        {
+            AceScore = 0;
+            foreach(Card c in Hand)
+            {
+                if(c.Value() == 11)
+                {
+                    AceScore += 1;
+                }
+                else
+                {
+                    AceScore += c.Value();
+                }
             }
         }
 
