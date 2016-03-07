@@ -11,14 +11,11 @@ namespace BlackJack
         static void Main(string[] args)
         {
             List<Card> Shoe = new List<Card>();
-            for (int i = 1; i <= 7; i++)
+            foreach (Rank r in Enum.GetValues(typeof(Rank)))
             {
-                foreach (Rank r in Enum.GetValues(typeof(Rank)))
+                foreach (Suit s in Enum.GetValues(typeof(Suit)))
                 {
-                    foreach (Suit s in Enum.GetValues(typeof(Suit)))
-                    {
-                        Shoe.Add(new Card(s, r));
-                    }
+                    Shoe.Add(new Card(s, r));
                 }
             }
             var randomShoe = Shoe.OrderBy(x => Guid.NewGuid()).ToList();
@@ -164,10 +161,7 @@ namespace BlackJack
                 }
                 else
                 {
-                    if (randomShoe.Count() <= 110) //~70% of Shoe used
-                    { 
-                        randomShoe = Shoe.OrderBy(x => Guid.NewGuid()).ToList();
-                    }
+                    randomShoe = Shoe.OrderBy(x => Guid.NewGuid()).ToList();
                     Human.Hand.Clear();
                     Dealer.Hand.Clear();
                     Human.Score = 0;
