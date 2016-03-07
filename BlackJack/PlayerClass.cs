@@ -17,6 +17,9 @@ namespace BlackJack
         public bool TurnEnd { get; set; }
         public bool Busted { get; set; }
         public bool SixCardWin { get; set; }
+        public int NumberOfAces { get; set; }
+
+        public List<int> PosibleScores = new List<int>();
 
         public void ShowHand()
         {

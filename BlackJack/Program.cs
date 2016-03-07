@@ -55,6 +55,15 @@ namespace BlackJack
                 Console.WriteLine();
 
                 Human.SetScore();
+                /*  Ace 1 or 11, not finished
+               // Human.Hand.Count()
+
+                for(int i = Human.NumberOfAces; i >= 0; i-- )
+                {
+                    Human.PosibleScores.Add(Human.Score - 10*i);
+                }
+                */
+
                 Console.WriteLine($"You're score is {Human.Score}");
                 if (Human.Score == 21)
                 {
